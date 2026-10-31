@@ -9,19 +9,52 @@
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#ffffff">
 
-<!-- NOTE: no canonical / sitemap / site-verification is set, because the site is not
-     registered with any search console yet. Add those only after you re-deploy. -->
-<!-- NOTE: social crawlers cannot read relative image paths. Once the site has a live
-     URL, change og:image / twitter:image to absolute, e.g.
-     https://your-domain.com/assets/og-image.webp -->
+<link rel="canonical" href="https://ps-workspace.vercel.app/">
+<meta property="og:site_name" content="PS Workspace">
 <meta property="og:title" content="PS Workspace — Six editors, one window, your own AI">
 <meta property="og:description" content="A free local-first office suite for Windows: DOCX, XLSX, PPTX, PDF, Markdown and HTML, 120 themes and 17+ BYOK AI providers. No account, no telemetry.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/og-image.webp">
+<meta property="og:url" content="https://ps-workspace.vercel.app/">
+<meta property="og:image" content="https://ps-workspace.vercel.app/assets/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PS Workspace home screen in the Sonus gold-on-black theme">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="assets/og-image.webp">
+<meta name="twitter:image" content="https://ps-workspace.vercel.app/assets/og-image.webp">
+<meta name="twitter:image:alt" content="PS Workspace home screen in the Sonus gold-on-black theme">
 
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "PS Workspace",
+  "alternateName": "PS Workspace Office Suite",
+  "url": "https://ps-workspace.vercel.app/",
+  "logo": "https://ps-workspace.vercel.app/assets/favicon-512.png"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PS Workspace",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Windows x64",
+  "url": "https://ps-workspace.vercel.app/",
+  "downloadUrl": "https://gofile.io/d/XAlHes3L",
+  "image": "https://ps-workspace.vercel.app/assets/og-image.webp",
+  "description": "A free local-first office suite for Windows x64 with six editors — DOCX, XLSX, PPTX, PDF, Markdown and HTML — 120 themes, offline search, OCR, a CLI and bring-your-own-key AI. No account, no telemetry, no subscription.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
 
 <script>
 /* Google Translate callback must exist before the external script loads. */
