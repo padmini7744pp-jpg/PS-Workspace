@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_not-published/
+
+Sitemap: https://ps-workspace.vercel.app/sitemap.xml
