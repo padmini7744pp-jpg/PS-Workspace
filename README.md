@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/34232442/README.md)
 # PS Workspace — landing page
 
 Static single-page website for **PS Workspace**, a free local-first office suite for Windows x64
