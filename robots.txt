@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /_not-published/
 
-Sitemap: https://ps-workspace.vercel.app/sitemap.xml
+Sitemap: https://ps-workspace.online/sitemap.xml
