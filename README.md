@@ -1,3 +1,4 @@
+[Uploading README.md…]()
 # PS Workspace — landing page
 
 Static single-page website for **PS Workspace**, a free local-first office suite for Windows x64
@@ -18,6 +19,7 @@ favicon.ico       multi-size 16-256 icon at the web root, for browsers and crawl
 apple-touch-icon.png  180x180 iOS home-screen icon
 sitemap.xml       one <loc>, because this is a single-page site
 robots.txt        allows the site, blocks /_not-published/, points at the sitemap
+google4e20c2e3e085eea4.html  Google Search Console ownership proof — must stay published (see below)
 _not-published/   never deploy this (see below)
 ```
 
@@ -95,6 +97,21 @@ rendered as text, never as HTML.
 That folder holds search-engine verification leftovers and one screenshot of a laptop screen that
 shows a bystander's phone number. `robots.txt` disallows the path, but the folder should never be
 uploaded in the first place. If you publish from git, add `_not-published/` to `.gitignore`.
+
+## Keep `google4e20c2e3e085eea4.html` published at the web root
+
+This is the **active Search Console ownership proof** for `ps-workspace.online` — do not delete it.
+It looks like a leftover from the earlier `vercel.app` attempt, and it is one, but Google reuses the
+same verification token for the same account, so the same file now verifies the new domain too.
+
+Verified by elimination on 2026-11-01: no `TXT` record exists on `ps-workspace.online` (so not DNS
+verification), `index.html` contains no `google-site-verification` meta tag, and the page loads no
+Analytics or Tag Manager — HTML file upload is the only method left standing. Deleting the file will
+eventually drop the property out of Search Console, which breaks sitemap reporting and Request
+Indexing.
+
+If Search Console is ever moved to DNS verification, the file becomes dead weight and can go.
+A copy is kept in `_not-published/` purely as a backup of the token.
 
 ## Responsive behaviour
 
