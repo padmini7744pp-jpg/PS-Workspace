@@ -1,18 +1,22 @@
-[README.md](https://github.com/user-attachments/files/34217051/README.md)
+[README.md](https://github.com/user-attachments/files/34232442/README.md)
 # PS Workspace — landing page
 
 Static single-page website for **PS Workspace**, a free local-first office suite for Windows x64
 (Word, Excel, PowerPoint, PDF, Markdown and HTML editors in one window, with a bring-your-own-key AI
-panel). Live at <https://ps-workspace.vercel.app>.
+panel). Live at <https://ps-workspace.online> (Vercel also serves the old
+`ps-workspace.vercel.app` host, but the canonical URL is the `.online` domain).
 
-No framework, no build step, no npm dependencies. One HTML file plus an image folder.
+No framework, no build step, no npm dependencies. One HTML file, an image folder and two root icon
+files.
 
 ## Layout
 
 ```
 index.html        the whole site: markup, CSS (<style>) and JS (<script>) in one file
-assets/           22 files, ~745 KB — 21 WebP images + favicon.svg
-                  (20 shown on the page, og-image.webp is meta-only, favicon is the tab icon)
+assets/           24 files, ~754 KB — 21 WebP images + favicon.svg + favicon-192/512.png
+                  (20 WebP shown on the page, og-image.webp is meta-only, favicon.svg is the tab icon)
+favicon.ico       multi-size 16-256 icon at the web root, for browsers and crawlers that ask for /favicon.ico
+apple-touch-icon.png  180x180 iOS home-screen icon
 sitemap.xml       one <loc>, because this is a single-page site
 robots.txt        allows the site, blocks /_not-published/, points at the sitemap
 _not-published/   never deploy this (see below)
@@ -33,8 +37,9 @@ then open `http://127.0.0.1:8123`.
 
 The repository root **is** the web root, so `index.html` must stay at the top level.
 
-- **Vercel:** import the repo, leave the build command empty, output directory `.`. The current
-  project deploys to `ps-workspace.vercel.app`.
+- **Vercel:** import the repo, leave the build command empty, output directory `.`. The project
+  deploys to `ps-workspace.online` (add it under Settings → Domains), with
+  `ps-workspace.vercel.app` kept as the underlying host.
 - **GitHub Pages:** publish the repo root as the site source.
 
 Nothing needs installing or compiling before either one.
@@ -53,18 +58,24 @@ Nothing needs installing or compiling before either one.
 
 ## If the domain ever changes
 
-Six places hard-code `https://ps-workspace.vercel.app` (4 in `index.html`, 1 in each of the other
+Ten places hard-code `https://ps-workspace.online` (8 in `index.html`, 1 in each of the other
 files), and all of them must be updated together:
 
 1. `<link rel="canonical">`
 2. `<meta property="og:url">`
 3. `<meta property="og:image">`
 4. `<meta name="twitter:image">`
-5. `<loc>` in `sitemap.xml`
-6. the `Sitemap:` line in `robots.txt`
+5. the `WebSite` JSON-LD block — `"url"`
+6. the `WebSite` JSON-LD block — `"logo"`
+7. the `SoftwareApplication` JSON-LD block — `"url"`
+8. the `SoftwareApplication` JSON-LD block — `"image"`
+9. `<loc>` in `sitemap.xml`
+10. the `Sitemap:` line in `robots.txt`
 
-Social crawlers (WhatsApp, Facebook, X) cannot read relative image paths, which is why those two
-image tags are absolute instead of `assets/og-image.webp`.
+Social crawlers (WhatsApp, Facebook, X) and Google's favicon crawler cannot reliably read relative
+image paths, which is why the image tags and the JSON-LD `logo` are absolute instead of `assets/...`.
+Everything else on the page, including the favicon `<link>` hrefs, stays relative so the site keeps
+working when opened from `file://`.
 
 ## What the page sends over the network
 
